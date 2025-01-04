@@ -1,0 +1,38 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+.maplibregl-popup {
+    max-width: 300px;
+  }
+  
+  .maplibregl-popup-content {
+    padding: 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  .maplibregl-popup-close-button {
+    padding: 5px 8px;
+    color: #666;
+  }
+  
+  .maplibregl-popup-close-button:hover {
+    color: #000;
+    background: none;
+  }
+
+  @keyframes float {
+    0% {
+      transform: translatey(0);
+    }
+    50% {
+      transform: translatey(-15px);
+    }
+    100% {
+      transform: translatey(0);
+    }
+  }
+  
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }

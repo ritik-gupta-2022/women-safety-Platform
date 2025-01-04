@@ -1,0 +1,17 @@
+{
+    "compilerOptions": {
+      "target": "esnext",               // Target modern JavaScript
+      "module": "esnext",               // Use ESNext for module resolution
+      "lib": ["dom", "esnext"],         // Include DOM and ESNext libraries
+      "moduleResolution": "node",       // Resolve modules as Node.js does
+      "strict": true,                   // Enable strict mode for type checking
+      "baseUrl": ".",                   // Set the base URL to the project root
+      "paths": {
+        "@/*": ["./src/*"]              // Define import alias for src folder
+      },
+      "jsx": "react-jsx"                // Enable React JSX support
+    },
+    "include": ["src"],                 // Include all TypeScript files in src
+    "exclude": ["node_modules"]         // Exclude node_modules from compilation
+}
+  
