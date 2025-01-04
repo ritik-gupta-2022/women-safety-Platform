@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateCurrentUser } from '../redux/user/userSlice';
 import { FaPhoneAlt, FaUser, FaEnvelope, FaLink } from 'react-icons/fa';
 import Header from '../components/shared/Header';
+import { API_URL } from '../utils/utils';
 
 const EmergencyContactForm = () => {
   const [contact, setContact] = useState({
@@ -25,7 +26,8 @@ const EmergencyContactForm = () => {
     
     try {
       setLoading(true);
-      const res = await fetch('/api/contact/add-contact', {
+      const res = await fetch(`${API_URL}/api/contact/add-contact`, {
+        credentials:'include',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(contact)

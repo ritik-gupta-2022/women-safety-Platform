@@ -6,6 +6,7 @@ import { toast } from "react-toastify";
 import { FaMapMarkerAlt, FaRegCommentDots, FaUserShield } from 'react-icons/fa';
 import Header from "../components/shared/Header";
 import { Comment } from "react-loader-spinner";
+import { API_URL } from "../utils/utils";
 
 const Complaints = () => {
   const [complaints, setComplaints] = useState([]);
@@ -17,8 +18,10 @@ const Complaints = () => {
     const fetchComplaints = async () => {
       try {
         setLoading(true);
-        const res = await fetch("/api/complaint/get-complaints", {
+        const res = await fetch(`${API_URL}/api/complaint/get-complaints`, {
           method: 'GET',
+          credentials:'include',
+
         });
 
         const data = await res.json();
@@ -40,8 +43,9 @@ const Complaints = () => {
   const confirmDelete = async () => {
     try {
       setLoading(true);
-      const res = await fetch(`/api/complaint/delete-complaint/${complaintToDelete}`, {
+      const res = await fetch(`${API_URL}/api/complaint/delete-complaint/${complaintToDelete}`, {
         method: 'DELETE',
+        credentials:'include',
       });
 
       const data = await res.json();

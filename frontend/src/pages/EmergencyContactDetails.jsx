@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { updateCurrentUser } from '../redux/user/userSlice';
 import { FaPhoneAlt, FaEnvelope, FaLink, FaTrashAlt } from 'react-icons/fa';
 import Header from '../components/shared/Header';
+import { API_URL } from '../utils/utils';
 
 const EmergencyContactDetails = () => {
   const [contacts, setContacts] = useState([]);
@@ -15,7 +16,9 @@ const EmergencyContactDetails = () => {
     const fetchContacts = async () => {
       try {
         setLoading(true);
-        const res = await fetch('api/contact/get-contacts');
+        const res = await fetch(`${API_URL}api/contact/get-contacts`,{
+        credentials:'include',
+        });
         const data = await res.json();
         if (res.status === 200) {
           setContacts(data);
@@ -34,7 +37,7 @@ const EmergencyContactDetails = () => {
 
   const handleDelete = async (id) => {
     try {
-      const res = await fetch(`api/contact/delete-contact/${id}/${currentUser._id}`, { method: 'DELETE' });
+      const res = await fetch(`${API_URL}/api/contact/delete-contact/${id}/${currentUser._id}`, { method: 'DELETE' });
       const data = await res.json();
       if (res.status === 200) {
         toast.success('Contact deleted successfully');

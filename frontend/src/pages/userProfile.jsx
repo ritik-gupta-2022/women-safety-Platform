@@ -9,6 +9,7 @@ import { updateCurrentUser } from '../redux/user/userSlice';
 import { FaUserCircle, FaEnvelope, FaPhone, FaMapMarkerAlt } from 'react-icons/fa'; // Added icons for consistency
 import Header from '../components/shared/Header';
 import { toast } from 'react-toastify';
+import { API_URL } from '../utils/utils';
 
 const UserProfile = () => {
   const { currentUser } = useSelector((state) => state.user);
@@ -39,7 +40,8 @@ const UserProfile = () => {
 
   const updateDetails = async()=>{
     try{
-      const res = await fetch('/api/auth/update-user',{
+      const res = await fetch(`${API_URL}/api/auth/update-user`,{
+        credentials:'include',
         method:"PUT",
         headers:{"Content-Type":"application/json"},
         body:JSON.stringify(editedData),

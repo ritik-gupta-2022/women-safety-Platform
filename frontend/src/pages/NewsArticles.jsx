@@ -3,6 +3,7 @@ import { toast } from 'react-toastify';
 import { FaCalendarAlt, FaNewspaper } from 'react-icons/fa';
 import Header from '../components/shared/Header';
 import { Audio } from 'react-loader-spinner';
+import { API_URL } from '../utils/utils';
 
 const NewsArticles = () => {
   const [articles, setArticles] = useState([]);
@@ -12,7 +13,9 @@ const NewsArticles = () => {
     const fetchArticles = async () => {
       try {
         setLoading(true);
-        const res = await fetch('/api/feature/get-news'); 
+        const res = await fetch(`${API_URL}/api/feature/get-news`,{
+          credentials:'include'
+        }); 
         const data = await res.json();
         setArticles(data.items); 
         setLoading(false);

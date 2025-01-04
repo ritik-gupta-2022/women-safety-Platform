@@ -6,6 +6,7 @@ import { Input } from "@/components/ui/input";
 import { AlertCircle, CheckCircle2, Clock, Search } from 'lucide-react';
 import { toast } from 'react-toastify';
 import Header from '../components/shared/Header';
+import { API_URL } from '../utils/utils';
 
 const AdministrativeDashboard = () => {
   const [complaints, setComplaints] = useState([]);
@@ -17,7 +18,9 @@ const AdministrativeDashboard = () => {
   const fetchComplaints = async () => {
     try {
       setLoading(true);
-      const response = await fetch('/api/complaint/all-complaints');
+      const response = await fetch(`${API_URL}/api/complaint/all-complaints`,{
+        credentials:'include',
+      });
       const data = await response.json();
       setComplaints(data);
     } catch (error) {
@@ -38,7 +41,8 @@ const AdministrativeDashboard = () => {
       const response = await fetch(`/api/complaint/update-status/${complaintId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
-        body: JSON.stringify({ status: newStatus })
+        body: JSON.stringify({ status: newStatus }),
+        credentials:'include',
       });
 
       if (!response.ok) {

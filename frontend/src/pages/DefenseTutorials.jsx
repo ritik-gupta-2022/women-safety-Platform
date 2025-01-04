@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
 import Header from '../components/shared/Header';
 import { Audio } from 'react-loader-spinner';
+import { API_URL } from '../utils/utils';
 
 const DefenseTutorials = () => {
   const [videos, setVideos] = useState([]);
@@ -10,7 +11,10 @@ const DefenseTutorials = () => {
   useEffect(() => {
     const fetchVideos = async () => {
       try {
-        const res = await fetch('/api/feature/defense-tutorials');
+        const res = await fetch(`${API_URL}/api/feature/defense-tutorials`,{
+        credentials:'include',
+
+        });
         const data = await res.json();
 
         if (res.ok) {

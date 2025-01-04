@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { toast } from 'react-toastify';
 import { FaUserCircle, FaEnvelope, FaPhone, FaMapMarkerAlt, FaRegFileAlt, FaSignOutAlt } from 'react-icons/fa';
 import Header from '../components/shared/Header';
+import { API_URL } from '../utils/utils';
 
 const ComplaintRegister = () => {
   const [error, setError] = useState(null);
@@ -36,10 +37,11 @@ const ComplaintRegister = () => {
     try {
       setLoading(true);
 
-      const res = await fetch('/api/complaint/register-complaint', {
+      const res = await fetch(`${API_URL}/api/complaint/register-complaint`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        credentials:'include',
       });
 
       const data = await res.json();

@@ -3,6 +3,7 @@ import { PhoneCall } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { API_URL } from '../../utils/utils';
 
 const CallIcon = () => {
   const location = useLocation();
@@ -11,9 +12,11 @@ const CallIcon = () => {
   const {currentUser} = useSelector((state)=>state.user);
   const handleClick = async () => {
     try {
-      const res = await fetch('api/feature/fake-call',{
+      const res = await fetch(`${API_URL}api/feature/fake-call`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
+        credentials:'include',
+
       }); 
 
       const data = await res.json();

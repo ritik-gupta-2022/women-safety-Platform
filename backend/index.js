@@ -22,8 +22,17 @@ const app = express();
 app.listen(3000,()=>{
     console.log("server connected at port 3000");
 });
+const corsOptions = {
+    origin: 'http://localhost:5173', // Your frontend origin
+    methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+    credentials: true, // Allow credentials like cookies if needed
+};
 
-app.use(cors());
+app.use(cors(corsOptions));
+
+app.options('*', cors(corsOptions)); 
+
+// app.use(cors());
 // for converting json data to object sent by server
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());

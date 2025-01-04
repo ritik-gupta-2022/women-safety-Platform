@@ -5,6 +5,7 @@ import { Button } from '../ui/button';
 import { useNavigate } from 'react-router-dom';
 import { logoutUser } from '../../redux/user/userSlice';
 import { toast } from 'react-toastify';
+import { API_URL } from '../../utils/utils';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,7 +14,10 @@ const Header = () => {
 
   const logout = async () => {
     try {
-      const res = await fetch('/api/auth/logout');
+      const res = await fetch(`${API_URL}/api/auth/logout`,{
+        credentials:'include',
+
+      });
       const data = await res.json();
 
       if (res.status === 200) {

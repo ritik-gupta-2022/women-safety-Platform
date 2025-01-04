@@ -8,6 +8,7 @@ import { signInFailure, signInStart, signInSuccess } from '../redux/user/userSli
 import { toast } from 'react-toastify';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Label } from '../components/ui/label';
+import { API_URL } from '../utils/utils';
 
 const SignIn = () => {
   const { loading, error } = useSelector((state) => state.user);
@@ -35,7 +36,8 @@ const SignIn = () => {
     try {
       dispatch(signInStart());
 
-      const res = await fetch('/api/auth/user-signin', {
+      const res = await fetch(`${API_URL}/api/auth/user-signin`, {
+        credentials:'include',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(credentials),

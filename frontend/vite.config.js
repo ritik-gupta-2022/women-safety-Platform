@@ -9,8 +9,7 @@ export default defineConfig({
     https: false,    // Disable HTTPS and SSL verification
     proxy: {
       '/api': {
-        target: 'https://women-safety-gwwe.onrender.com',
-        changeOrigin:true,
+        target: 'http://localhost:3000',
         secure: false,
       },
     },

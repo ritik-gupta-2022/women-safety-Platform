@@ -6,6 +6,7 @@ import { Input } from '../components/ui/input';
 import { FaRegFileAlt, FaMapMarkerAlt } from 'react-icons/fa'; // Font Awesome Icons
 import { toast } from 'react-toastify';
 import Header from '../components/shared/Header';
+import { API_URL } from '../utils/utils';
 
 const AnonyMousComplaint = () => {
   const [error, setError] = useState(null);
@@ -35,10 +36,11 @@ const AnonyMousComplaint = () => {
     try {
       setLoading(true);
 
-      const res = await fetch('/api/complaint/anonymous-complaint', {
+      const res = await fetch(`${API_URL}/api/complaint/anonymous-complaint`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
+        credentials:'include',
       });
 
       const data = await res.json();

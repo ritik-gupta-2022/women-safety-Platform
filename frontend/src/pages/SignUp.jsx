@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { Card, CardContent, CardHeader, CardTitle } from '../components/ui/card';
 import { Label } from '../components/ui/label';
+import { API_URL } from '../utils/utils';
 
 const SignUp = () => {
   const { loading, error } = useSelector((state) => state.user);
@@ -39,7 +40,8 @@ const SignUp = () => {
     try {
       dispatch(signUpStart());
 
-      const res = await fetch('/api/auth/user-signup', {
+      const res = await fetch(`${API_URL}/api/auth/user-signup`, {
+        credentials:'include',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(userDetails),

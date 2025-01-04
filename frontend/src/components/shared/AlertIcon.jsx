@@ -3,6 +3,7 @@ import { AlertCircle } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { API_URL } from '../../utils/utils';
 
 const AlertIcon = () => {
   const {currentUser} = useSelector((state)=>state.user);
@@ -21,10 +22,11 @@ const AlertIcon = () => {
 
       const coords = [position.coords.longitude, position.coords.latitude];
       console.log(coords);
-      const res = await fetch('api/feature/send-alert',{
+      const res = await fetch(`${API_URL}/api/feature/send-alert`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({lon:position.coords.longitude, lat:position.coords.latitude})
+        body: JSON.stringify({lon:position.coords.longitude, lat:position.coords.latitude}),
+        credentials:'include',
       }); 
 
       const data = await res.json();

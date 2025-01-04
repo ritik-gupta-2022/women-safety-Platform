@@ -3,6 +3,7 @@ import { AlertCircle, Mic, MicOff } from 'lucide-react';
 import { toast } from 'react-toastify';
 import { useSelector } from 'react-redux';
 import { useLocation } from 'react-router-dom';
+import { API_URL } from '../../utils/utils';
 
  const VoiceDetection = () => {
   
@@ -83,7 +84,8 @@ import { useLocation } from 'react-router-dom';
 
       const coords = [position.coords.longitude, position.coords.latitude];
       console.log(coords);
-      const res = await fetch('api/feature/send-alert',{
+      const res = await fetch(`${API_URL}api/feature/send-alert`,{
+        credentials:'include',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({lon:position.coords.longitude, lat:position.coords.latitude})
@@ -113,10 +115,10 @@ import { useLocation } from 'react-router-dom';
      >
       {isListening ? <MicOff /> : <Mic />}
     </div>
-    <div className="m-4 bg-white border border-gray-200 rounded-xl p-6 shadow-lg text-gray-900 max-w-2xl mx-auto transition-transform hover:scale-105">
+    {/* <div className="m-4 bg-white border border-gray-200 rounded-xl p-6 shadow-lg text-gray-900 max-w-2xl mx-auto transition-transform hover:scale-105">
         <h3 className="text-xl font-semibold text-gray-800 mb-4">Transcript</h3>
         <p className="leading-relaxed text-gray-700">{transcript}</p>
-    </div>
+    </div> */}
       
     </>
   );
