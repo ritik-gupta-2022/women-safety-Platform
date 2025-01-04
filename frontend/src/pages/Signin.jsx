@@ -114,10 +114,10 @@ const SignIn = () => {
       <div className="mt-6 p-4 border-2 border-dashed border-gray-300 rounded-lg bg-gray-50">
         <h3 className="text-lg font-semibold text-gray-700">Admin Credentials</h3>
         <p className="mt-2 text-sm text-gray-600">
-          Username: <span className="font-semibold text-purple-600">Ag</span>
+          Username: <span className="font-semibold text-purple-600">admin_1</span>
         </p>
         <p className="mt-2 text-sm text-gray-600">
-          Password: <span className="font-semibold text-purple-600">1056</span>
+          Password: <span className="font-semibold text-purple-600">1234</span>
         </p>
       </div>
     </CardContent>
