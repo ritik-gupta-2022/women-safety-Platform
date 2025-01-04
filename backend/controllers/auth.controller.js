@@ -54,7 +54,12 @@ export const userSignin = async(req,res,next)=>{
         const { password :pass, ...rest} = user._doc
 
         res.status(200).cookie('access_token', token, {
-            httpOnly: false,
+          expires:new Date(
+         Date.now()+7*24*60*60*1000
+        ),
+        httpOnly:true,
+        secure: true,
+        sameSite: "none",
         })
         .json(rest);
         

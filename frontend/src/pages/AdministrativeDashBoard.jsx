@@ -38,7 +38,7 @@ const AdministrativeDashboard = () => {
   // Handle status update
   const handleStatusUpdate = async (complaintId, newStatus) => {
     try {
-      const response = await fetch(`/api/complaint/update-status/${complaintId}`, {
+      const response = await fetch(`${API_URL}/api/complaint/update-status/${complaintId}`, {
         method: 'PUT',
         headers: {'Content-Type': 'application/json'},
         body: JSON.stringify({ status: newStatus }),
