@@ -3,8 +3,13 @@ import { FiSearch } from "react-icons/fi";
 import { FaPhoneAlt, FaShieldAlt, FaMapMarkedAlt, FaExclamationCircle, FaRoute } from "react-icons/fa";
 import { BsFillMicFill, BsFillShieldLockFill } from "react-icons/bs";
 import NavBar from "../components/shared/Navbar";
+import { useNavigate } from "react-router-dom";
 
 function Landing() {
+  const navigate = useNavigate();
+  const handleClick = () => {
+    navigate('/dashboard');
+  };
   return (
     <>
     <NavBar/>
@@ -39,20 +44,23 @@ function Landing() {
             />
           </div>
           <div className="mt-6 flex flex-wrap gap-2 justify-center">
-            <button className="text-white bg-pink-500 px-3 py-1 rounded-full font-normal hover:bg-pink-700 transition-all duration-300 transform">
+            <button onClick={handleClick} className="text-white bg-pink-500 px-3 py-1 rounded-full font-normal hover:bg-pink-700 transition-all duration-300 transform">
               Safe Routes
             </button>
-            <button className="text-white bg-pink-500 px-3 py-1 rounded-full font-normal hover:bg-pink-700 transition-all duration-300 transform">
+            <button onClick={handleClick} className="text-white bg-pink-500 px-3 py-1 rounded-full font-normal hover:bg-pink-700 transition-all duration-300 transform">
               Safe Locations
             </button>
           </div>
         </div>
 
         <div className="mt-8">
-          <button className="bg-pink-500 text-white px-6 py-3 rounded-full font-semibold text-xl hover:bg-pink-700 transition duration-300">
-            Get Started
-          </button>
-        </div>
+      <button
+        onClick={handleClick}
+        className="bg-pink-500 text-white px-6 py-3 rounded-full font-semibold text-xl hover:bg-pink-700 transition duration-300"
+      >
+        Get Started
+      </button>
+    </div>
       </section>
 
       <hr className="border-t-2 border-gray-500 mx-auto my-10 w-1/2" />
