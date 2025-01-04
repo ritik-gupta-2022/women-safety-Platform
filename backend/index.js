@@ -23,7 +23,7 @@ app.listen(3000,()=>{
     console.log("server connected at port 3000");
 });
 const corsOptions = {
-    origin: 'http://localhost:5173', // Your frontend origin
+    origin: 'https://women-safety-platform.vercel.app', // Your frontend origin
     methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
     credentials: true, // Allow credentials like cookies if needed
 };

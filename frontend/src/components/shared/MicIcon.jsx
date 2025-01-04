@@ -84,7 +84,7 @@ import { API_URL } from '../../utils/utils';
 
       const coords = [position.coords.longitude, position.coords.latitude];
       console.log(coords);
-      const res = await fetch(`${API_URL}api/feature/send-alert`,{
+      const res = await fetch(`${API_URL}/api/feature/send-alert`,{
         credentials:'include',
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },

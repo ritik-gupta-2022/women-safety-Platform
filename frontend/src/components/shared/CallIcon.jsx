@@ -12,7 +12,7 @@ const CallIcon = () => {
   const {currentUser} = useSelector((state)=>state.user);
   const handleClick = async () => {
     try {
-      const res = await fetch(`${API_URL}api/feature/fake-call`,{
+      const res = await fetch(`${API_URL}/api/feature/fake-call`,{
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials:'include',
