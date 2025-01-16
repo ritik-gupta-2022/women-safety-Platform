@@ -91,6 +91,32 @@ You can view the live preview of the project [here](https://women-safety-platfor
 
 We welcome contributions to make SafeHer even better!.
 
+
 ## 🌟 Support Us
 
 If you find this helpful or valuable, please consider 🌟 starring the repository. It helps us gain visibility and encourages further development.
+
+## ✍️ About Developer
+
+<table>
+  <tbody>
+    <tr>
+      <td align="center" valign="top">
+        <img src="https://media.licdn.com/dms/image/v2/D4D03AQGOWMA-4a0x1g/profile-displayphoto-shrink_400_400/profile-displayphoto-shrink_400_400/0/1675701785668?e=1742428800&v=beta&t=PDuu-BX8pPYrbnNgSX_Jf57FAk383oO87fis-UA1Vlc" width="120px;" alt="Ritik Gupta"/>
+        <br />
+        <b>Ritik Gupta</b>
+      </td>
+    </tr>
+    <tr>
+        <td align="center">
+            <a href="https://github.com/ritik-gupta-2022">
+            <img src="https://img.shields.io/badge/GitHub-100000.svg?style=for-the-badge&logo=github&logoColor=white"/>
+            </a>
+            <br/>
+            <a href="https://www.linkedin.com/in/ritik-gupta-948815253/">
+            <img src="https://img.shields.io/badge/linkedin-%230077B5.svg?style=for-the-badge&logo=linkedin&logoColor=white"/>
+            </a>
+        </td>
+    </tr>
+  </tbody>
+</table>
